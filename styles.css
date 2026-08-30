@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2933;
+    line-height: 1.5;
+}
+
+header {
+    background: #1f2933;
+    color: #fff;
+    padding: 20px 32px;
+}
+
+header h1 {
+    font-size: 1.4rem;
+}
+
+.api-info {
+    font-size: 0.85rem;
+    color: #9aa5b1;
+    margin-top: 4px;
+}
+
+.api-info code {
+    color: #cbd2d9;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    background: #323f4b;
+    padding: 0 32px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #cbd2d9;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    color: #fff;
+}
+
+.tab-btn.active {
+    color: #fff;
+    border-bottom-color: #3ebd93;
+}
+
+main {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 0 32px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+form {
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #52606d;
+}
+
+.field input,
+.field select {
+    padding: 8px 10px;
+    border: 1px solid #cbd2d9;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    min-width: 180px;
+}
+
+form button {
+    background: #3ebd93;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #35a679;
+}
+
+.form-msg {
+    font-size: 0.85rem;
+    align-self: center;
+}
+
+.form-msg.ok {
+    color: #35a679;
+}
+
+.form-msg.error {
+    color: #cf1124;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e4e7eb;
+    font-size: 0.9rem;
+}
+
+th {
+    background: #f0f4f8;
+    color: #52606d;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody:empty::after {
+    content: "Sin registros";
+}

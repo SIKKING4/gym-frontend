@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gimnasio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión de Gimnasio</h1>
+        <p class="api-info">API: <code id="api-url"></code></p>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-btn active" data-tab="miembros">Miembros</button>
+        <button class="tab-btn" data-tab="clases">Clases</button>
+        <button class="tab-btn" data-tab="entrenadores">Entrenadores</button>
+        <button class="tab-btn" data-tab="equipos">Equipos</button>
+    </nav>
+
+    <main>
+        <!-- MIEMBROS -->
+        <section id="miembros" class="tab-panel active">
+            <h2>Miembros</h2>
+            <form data-entity="miembros">
+                <div class="field">
+                    <label>Nombre</label>
+                    <input name="nombre" required>
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input name="email" type="email" required>
+                </div>
+                <div class="field">
+                    <label>Fecha de inscripción</label>
+                    <input name="fechaInscripcion" type="date" required>
+                </div>
+                <button type="submit">Registrar miembro</button>
+                <span class="form-msg"></span>
+            </form>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Fecha de inscripción</th></tr>
+                </thead>
+                <tbody id="miembros-body"></tbody>
+            </table>
+        </section>
+
+        <!-- CLASES -->
+        <section id="clases" class="tab-panel">
+            <h2>Clases</h2>
+            <form data-entity="clases">
+                <div class="field">
+                    <label>Nombre</label>
+                    <input name="nombre" required>
+                </div>
+                <div class="field">
+                    <label>Horario</label>
+                    <input name="horario" type="datetime-local" required>
+                </div>
+                <div class="field">
+                    <label>Capacidad máxima</label>
+                    <input name="capacidadMaxima" type="number" min="1" required>
+                </div>
+                <div class="field">
+                    <label>Entrenador</label>
+                    <select name="entrenadorId" id="clase-entrenador" required></select>
+                </div>
+                <button type="submit">Programar clase</button>
+                <span class="form-msg"></span>
+            </form>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Nombre</th><th>Horario</th><th>Capacidad</th><th>Entrenador (id)</th></tr>
+                </thead>
+                <tbody id="clases-body"></tbody>
+            </table>
+        </section>
+
+        <!-- ENTRENADORES -->
+        <section id="entrenadores" class="tab-panel">
+            <h2>Entrenadores</h2>
+            <form data-entity="entrenadores">
+                <div class="field">
+                    <label>Nombre</label>
+                    <input name="nombre" required>
+                </div>
+                <div class="field">
+                    <label>Especialidad</label>
+                    <input name="especialidad" required>
+                </div>
+                <button type="submit">Agregar entrenador</button>
+                <span class="form-msg"></span>
+            </form>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Nombre</th><th>Especialidad</th></tr>
+                </thead>
+                <tbody id="entrenadores-body"></tbody>
+            </table>
+        </section>
+
+        <!-- EQUIPOS -->
+        <section id="equipos" class="tab-panel">
+            <h2>Equipos</h2>
+            <form data-entity="equipos">
+                <div class="field">
+                    <label>Nombre</label>
+                    <input name="nombre" required>
+                </div>
+                <div class="field">
+                    <label>Descripción</label>
+                    <input name="descripcion" required>
+                </div>
+                <div class="field">
+                    <label>Cantidad</label>
+                    <input name="cantidad" type="number" min="0" required>
+                </div>
+                <button type="submit">Agregar equipo</button>
+                <span class="form-msg"></span>
+            </form>
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Cantidad</th></tr>
+                </thead>
+                <tbody id="equipos-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
