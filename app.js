@@ -1,13 +1,11 @@
 (function () {
     "use strict";
 
-    // El frontend consume únicamente el API Gateway.
     var params = new URLSearchParams(window.location.search);
     var API = (params.get("api") || window.API_BASE || "http://localhost:8080/api/gimnasio").replace(/\/$/, "");
 
     document.getElementById("api-url").textContent = API;
 
-    // --- Navegación por pestañas ---
     var tabButtons = document.querySelectorAll(".tab-btn");
     tabButtons.forEach(function (btn) {
         btn.addEventListener("click", function () {
@@ -18,7 +16,6 @@
         });
     });
 
-    // --- Utilidades HTTP ---
     function getJSON(path) {
         return fetch(API + path).then(function (r) {
             if (!r.ok) { throw new Error("HTTP " + r.status); }
@@ -55,7 +52,6 @@
         span.className = "form-msg " + (ok ? "ok" : "error");
     }
 
-    // --- Cargadores de cada entidad ---
     function loadMiembros() {
         return getJSON("/miembros").then(function (data) {
             var body = document.getElementById("miembros-body");
@@ -73,7 +69,6 @@
             data.forEach(function (e) {
                 body.appendChild(row([e.id, e.nombre, e.especialidad]));
             });
-            // Rellenar el <select> del formulario de clases
             var select = document.getElementById("clase-entrenador");
             select.innerHTML = "";
             data.forEach(function (e) {
@@ -105,7 +100,6 @@
         });
     }
 
-    // --- Envío de formularios ---
     var handlers = {
         miembros: {
             build: function (f) {
@@ -165,7 +159,6 @@
         });
     });
 
-    // --- Carga inicial ---
     function refreshAll() {
         loadEntrenadores().catch(reportError);
         loadMiembros().catch(reportError);
